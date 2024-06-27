@@ -4,12 +4,15 @@
    2 - if the password contains the letter z(index of last char)
    1 - if the password ends with an !
    3 - if the password begins with any uppercase letter
-   4 - if the password contains any special char
+   4 - if the password contains any special character
 '''
 RuleOne = False
 RuleTwo = False
 RuleThree = False
 RuleFour = False
+Special_Char = ['@', '#', '$', '%', 
+                '^', '&', '*', '~', 
+                '?', '}', '{', '_']
 print('''Enter a password which...
       - Contains the letter z
       - Ends with an !
@@ -23,7 +26,9 @@ if PW[-1] == '!':
         RuleTwo = True
         if PW[0].isupper:
             RuleThree = True
-            print('Accept!')
+            if PW:
+                RuleFour = True
+                print('Accept!')
 else:
     print('Reject!')
 
